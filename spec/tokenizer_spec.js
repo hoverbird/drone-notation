@@ -13,14 +13,14 @@ describe('Tokenizer', function() {
 
   it('should tokenize multiple different chars', function() {
     expect(Tokenizer.tokenize('➚ → ↑ ↓ △ ➘')).toEqual(
-      [['takeoff', 'right', 'forward', 'back', 'up', 'land']]
+      [['takeoff', 'right', 'front', 'back', 'up', 'land']]
     );
   });
 
   it('should tokenize chars on multiple lines', function() {
     expect(Tokenizer.tokenize('➚ → ↑ ↓ △ ➘\n· · · ↑ ↓ →')).toEqual(
-      [ ['takeoff', 'right', 'forward', 'back', 'up', 'land'],
-        ['wait', 'wait', 'wait', 'forward', 'back', 'right'] ]
+      [ ['takeoff', 'right', 'front', 'back', 'up', 'land'],
+        ['wait', 'wait', 'wait', 'front', 'back', 'right'] ]
     );
   });
 

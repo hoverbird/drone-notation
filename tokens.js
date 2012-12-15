@@ -3,9 +3,13 @@ exports.withoutPowerArg = ['wait', 'takeoff', 'land'];
 exports.commandMap = {
   '·': 'wait',
   '➚': 'takeoff',
+  '➘': 'land',
   '→': 'right',
-  '↑': 'forward',
+  '←': 'left',
+  '↑': 'front',
   '↓': 'back',
   '△': 'up',
-  '➘': 'land'
+  '▽': 'down',
+  '↻': 'clockwise',
+  '↺': 'counterClockwise',
 };

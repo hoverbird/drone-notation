@@ -9,7 +9,7 @@ client
     this.right(0.8);
   })
   .after(1000, function() {
-    this.forward(0.8);
+    this.front(0.8);
   })
   .after(1000, function() {
     this.back(0.8);

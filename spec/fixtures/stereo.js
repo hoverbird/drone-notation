@@ -11,12 +11,12 @@ client
     this.wait();
   })
   .after(1000, function() {
-    this.forward(0.8);
+    this.front(0.8);
     this.wait();
   })
   .after(1000, function() {
     this.back(0.8);
-    this.forward(0.8);
+    this.front(0.8);
   })
   .after(1000, function() {
     this.up(0.8);
