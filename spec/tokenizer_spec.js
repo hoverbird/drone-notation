@@ -4,16 +4,16 @@ var Tokenizer = require('tokenizer');
 describe('Tokenizer', function() {
 
   it('should tokenize the ➚ character as a "takeoff" action.', function() {
-    expect(Tokenizer.tokenize('➚')).toEqual(["takeoff"])
+    expect(Tokenizer.tokenize('➚')).toEqual([["takeoff"]])
   });
 
   it('should tokenize multiple characters as multiple chained calls', function() {
-    expect(Tokenizer.tokenize('· · ·')).toEqual(['wait','wait','wait'])
+    expect(Tokenizer.tokenize('· · ·')).toEqual([['wait','wait','wait']])
   });
 
   it('should tokenize multiple different chars', function() {
     expect(Tokenizer.tokenize('➚ → ↑ ↓ △ ➘')).toEqual(
-      ['takeoff', 'right', 'forward', 'back', 'up', 'land']
+      [['takeoff', 'right', 'forward', 'back', 'up', 'land']]
     );
   });
 

@@ -1,17 +1,9 @@
+var tokens = require('tokens.js');
+
 exports.tokenize = function (input) {
   var output = [];
   var rows = input.split('\n')
   var rowIndex = 0;
-
-  var tokenToCommandMap = {
-    '·': 'wait',
-    '➚': 'takeoff',
-    '→': 'right',
-    '↑': 'forward',
-    '↓': 'back',
-    '△': 'up',
-    '➘': 'land'
-  }
 
   while (rowIndex < rows.length) {
     var row = rows[rowIndex],
@@ -20,7 +12,7 @@ exports.tokenize = function (input) {
         tokenized = row.split(' ');
 
     while (i <= tokenized.length) {
-      var command = tokenToCommandMap[tokenized[i]];
+      var command = tokens.commandMap[tokenized[i]];
 
       if (typeof command !== "undefined" && command !== null) {
         rowOutput.push(command);
@@ -32,9 +24,5 @@ exports.tokenize = function (input) {
     rowIndex++;
   }
 
-  if (output.length === 1 ) {
-    return output[0];
-  } else {
-    return output
-  }
+  return output;
 }
