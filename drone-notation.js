@@ -1,4 +1,4 @@
-var Parser = require( 'parser');
+var Tokenizer = require('tokenizer');
 
 exports.generate = function (input) {
   var output = [
@@ -6,7 +6,7 @@ exports.generate = function (input) {
     "var client  = arDrone.createClient();",
     "",
     "client",
-    Parser.parse(input)
+    Tokenizer.tokenize(input)
   ]
   return output.join('\n');
 }

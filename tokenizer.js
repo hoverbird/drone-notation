@@ -1,4 +1,4 @@
-exports.parse = function (input) {
+exports.tokenize = function (input) {
   var output = [];
   var rows = input.split('\n')
   var rowIndex = 0;
@@ -23,15 +23,12 @@ exports.parse = function (input) {
       var command = tokenToCommandMap[tokenized[i]];
 
       if (typeof command !== "undefined" && command !== null) {
-                  console.log('rowOutput!', rowOutput)
-
         rowOutput.push(command);
       }
       i++;
     }
 
     output.push(rowOutput);
-                          console.log('output !', output)
     rowIndex++;
   }
 
