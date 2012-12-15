@@ -1,4 +1,4 @@
-// ➚ ⧖ ⧖ ⧖ → ↑ ↑ ↓ △ △ ➘
+// ➚ · · · → ↑ ↑ ↓ △ △ ➘
 var DroneNotation = require('drone-notation');
 var fs = require('fs');
 
