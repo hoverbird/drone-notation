@@ -18,20 +18,19 @@ exports.generate = function (input, opts) {
           columnCell = "    this." + token;
 
       if (tokens.withoutPowerArg.indexOf(token) >= 0) {
-        columnCell += "();\n";
+        columnCell += "();";
       } else {
-        columnCell += "(" + opts.powerLevelFloat + ");\n";
+        columnCell += "(" + opts.powerLevelFloat + ");";
       }
       commandsInCol.push(columnCell)
     });
 
     columnBlock = "  .after(" + opts.beatLengthInMilliseconds + ", function() {\n"
       + commandsInCol.join("\n")
-    + "  })\n";
+    + "\n  })\n";
     commands.push(columnBlock);
   }
 
-  console.log("COMMANDS", commands)
   var output = [
     "var arDrone = require('ar-drone');",
     "var client  = arDrone.createClient();",
