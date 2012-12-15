@@ -4,26 +4,32 @@ var tokens = require('tokens');
 exports.generate = function (input, opts) {
   var rows = Tokenizer.tokenize(input),
       commands = [],
+      columnWidth = rows[0].length,
       opts = opts || {
         beatLengthInMilliseconds: 1000,
         powerLevelFloat: 0.8
       };
 
-  rows.forEach(function(row) {
-    var rowBlock = "  .after(" + opts.beatLengthInMilliseconds + ", function() {\n";
+  for(var col = 0; col < columnWidth; col++) {
+    var commandsInCol = [];
 
-    row.forEach(function(token) {
-      rowBlock += "    this." + token;
+    rows.forEach(function(row) {
+      var token = row[col],
+          columnCell = "    this." + token;
+
       if (tokens.withoutPowerArg.indexOf(token) >= 0) {
-        rowBlock += "();\n";
+        columnCell += "();\n";
       } else {
-        rowBlock += "(" + opts.powerLevelFloat + ");\n";
+        columnCell += "(" + opts.powerLevelFloat + ");\n";
       }
+      commandsInCol.push(columnCell)
     });
 
-    rowBlock += "})"
-    commands.push(rowBlock);
-  });
+    columnBlock = "  .after(" + opts.beatLengthInMilliseconds + ", function() {\n"
+      + commandsInCol.join("\n")
+    + "  })\n";
+    commands.push(columnBlock);
+  }
 
   console.log("COMMANDS", commands)
   var output = [
@@ -31,7 +37,7 @@ exports.generate = function (input, opts) {
     "var client  = arDrone.createClient();",
     "",
     "client",
-    commands
+    commands.join('')
   ]
   return output.join('\n');
 }
