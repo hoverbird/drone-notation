@@ -18,10 +18,18 @@ describe('Tokenizer', function() {
   });
 
   it('should tokenize chars on multiple lines', function() {
-    expect(Tokenizer.tokenize('➚ → ↑ ↓ △ ➘\n· · · ↑ ↓ →')).toEqual(
+    expect(Tokenizer.tokenize('➚ → ↑ ↓ △ ➘ | · · · ↑ ↓ →')).toEqual(
       [ ['takeoff', 'right', 'front', 'back', 'up', 'land'],
         ['wait', 'wait', 'wait', 'front', 'back', 'right'] ]
     );
   });
+
+  it('should replace newline characters with pipes, and split on those', function() {
+    expect(Tokenizer.tokenize('➚ → ↑ ↓ △ ➘ \n · · · ↑ ↓ →')).toEqual(
+      [ ['takeoff', 'right', 'front', 'back', 'up', 'land'],
+        ['wait', 'wait', 'wait', 'front', 'back', 'right'] ]
+    );
+  });
+
 
 });

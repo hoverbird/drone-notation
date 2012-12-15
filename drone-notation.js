@@ -6,7 +6,7 @@ exports.generate = function (input, opts) {
       commands = [],
       columnWidth = rows[0].length,
       opts = opts || {
-        beatLengthInMilliseconds: 5000,
+        beatLengthInMilliseconds: 1000,
         powerLevelFloat: 0.8
       };
 

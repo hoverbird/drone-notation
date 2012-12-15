@@ -2,7 +2,7 @@ var tokens = require(__dirname + '/tokens.js');
 
 exports.tokenize = function (input) {
   var output = [];
-  var rows = input.split('\n')
+  var rows = input.replace('\n', '|').split('|')
   var rowIndex = 0;
 
   while (rowIndex < rows.length) {
