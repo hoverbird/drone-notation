@@ -1,5 +1,5 @@
-var Tokenizer = require('tokenizer');
-var tokens = require('tokens');
+var Tokenizer = require(__dirname + '/tokenizer');
+var tokens = require(__dirname + '/tokens');
 
 exports.generate = function (input, opts) {
   var rows = Tokenizer.tokenize(input),

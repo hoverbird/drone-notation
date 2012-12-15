@@ -1,4 +1,4 @@
-var tokens = require('tokens.js');
+var tokens = require(__dirname + '/tokens.js');
 
 exports.tokenize = function (input) {
   var output = [];
