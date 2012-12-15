@@ -6,7 +6,7 @@ exports.generate = function (input, opts) {
       commands = [],
       columnWidth = rows[0].length,
       opts = opts || {
-        beatLengthInMilliseconds: 1000,
+        beatLengthInMilliseconds: 5000,
         powerLevelFloat: 0.8
       };
 
@@ -33,12 +33,6 @@ exports.generate = function (input, opts) {
     commands.push(columnBlock);
   }
 
-  var output = [
-    "var arDrone = require('ar-drone');",
-    "var client  = arDrone.createClient();",
-    "",
-    "client",
-    commands.join('')
-  ]
+  var output = ["drone",commands.join('')];
   return output.join('\n');
 }

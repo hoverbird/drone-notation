@@ -1,7 +1,4 @@
-var arDrone = require('ar-drone');
-var client  = arDrone.createClient();
-
-client
+drone
   .after(1000, function() {
     this.takeoff();
   })
