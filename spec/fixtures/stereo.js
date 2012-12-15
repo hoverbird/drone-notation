@@ -4,15 +4,12 @@ var client  = arDrone.createClient();
 client
   .after(1000, function() {
     this.takeoff();
-    this.wait();
   })
   .after(1000, function() {
     this.right(0.8);
-    this.wait();
   })
   .after(1000, function() {
     this.front(0.8);
-    this.wait();
   })
   .after(1000, function() {
     this.back(0.8);

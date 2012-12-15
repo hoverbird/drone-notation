@@ -14,8 +14,10 @@ exports.generate = function (input, opts) {
     var commandsInCol = [];
 
     rows.forEach(function(row) {
-      var token = row[col],
-          columnCell = "    this." + token;
+      var token = row[col];
+      if (token === 'wait') return; // wait is a no-op
+
+      var columnCell = "    this." + token;
 
       if (tokens.withoutPowerArg.indexOf(token) >= 0) {
         columnCell += "();";
