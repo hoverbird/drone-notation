@@ -3,13 +3,20 @@ exports.parse = function (input) {
   var output = [];
   var i = 0;
 
-  while (i <= tokenized.length) {
-    var char = tokenized[i];
+  var tokenToCommandMap = {
+    '⧖': 'wait',
+    '➚': 'takeoff',
+    '→': 'right',
+    '↑': 'forward',
+    '↓': 'back',
+    '△': 'up',
+    '➘': 'land'
+  }
 
-    if        (char === '⧖') {
-      output.push('.wait()')
-    } else if (char === '➚') {
-      output.push('.takeoff()');
+  while (i <= tokenized.length) {
+    var command = tokenToCommandMap[tokenized[i]];
+    if (typeof command !== "undefined" && command !== null) {
+      output.push('  .' + command + '()');
     }
     i++
   }

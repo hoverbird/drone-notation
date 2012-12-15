@@ -1,7 +1,7 @@
 // ➚ ⧖ ⧖ ⧖ → ↑ ↑ ↓ △ △ ➘
 var Parser = require('parser');
 
-describe('Drone Notation', function() {
+describe('Parser', function() {
 
   it('should parse the ➚ character as a "takeoff" action.', function() {
     expect(Parser.parse('➚')).toEqual(".takeoff();")
@@ -12,15 +12,7 @@ describe('Drone Notation', function() {
   });
 
   it('should parse multiple, idiosyncratic chars', function() {
-    var expectedOutput = ""+<r><![CDATA[
-      .takeoff()
-      .right()
-      .forward()
-      .back()
-      .up
-      .land();
-    ]]></r>;
-
+    var expectedOutput = ".takeoff()\n.right()\n.forward()\n.back()\n.up()\n.land();";
     expect(Parser.parse('➚ → ↑ ↓ △ ➘')).toEqual(expectedOutput);
   });
 
