@@ -15,7 +15,7 @@ exports.generate = function (input, opts) {
 
     rows.forEach(function(row) {
       var token = row[col];
-      if (token === 'wait' || typeof command === "undefined" || command === null) return; // wait is a no-op
+      if (token === 'wait') return; // wait is a no-op
 
       var columnCell = "    this." + token;
 
