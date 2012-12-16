@@ -9,7 +9,7 @@ exports.tokenize = function (input) {
     var row = rows[rowIndex],
         rowOutput = [],
         i = 0,
-        tokenized = row.split(' ');
+        tokenized = row.split('');
 
     while (i <= tokenized.length) {
       var command = tokens.commandMap[tokenized[i]];
